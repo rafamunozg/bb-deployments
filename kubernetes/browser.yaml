@@ -41,7 +41,7 @@ spec:
     protocol: TCP
   selector:
     app: browser
-  type: ClusterIP
+  type: LoadBalancer
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -50,8 +50,7 @@ metadata:
   namespace: buildbarn
 spec:
   rules:
-  - host: bb-browser.example.com
-    http:
+  - http:
       paths:
       - path: /
         backend:
